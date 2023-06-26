@@ -93,7 +93,7 @@ p a{
     max-width: 100%;
 }
 
-#sence2,#sence3{
+#sence2,#sence3,#sence4,#sence5,#sence6{
     font-family: 'Oswald', sans-serif;
     aspect-ratio: 16/9;
     width: 100vw;
@@ -122,6 +122,7 @@ p a{
     position: absolute;
     z-index: 2;
     opacity: 0;
+    transition: all .2s ease;
 }
 
 .boxPic > img:nth-child(1){
@@ -156,6 +157,11 @@ p a{
     opacity: 1;
 }
 
+.boxPic > img:hover{
+    z-index: 999;
+    scale: 1.2;
+}
+
 .boxAvt{
     width: 55vw;
     min-width: 400px;
@@ -166,7 +172,12 @@ p a{
     gap: 10px;
 }
 
+.circle-avatar:hover{
+    scale: 1.2;
+}
+
 .boxAvt .circle-avatar{
+    transition: all .2s ease;
     flex-shrink: 0;
     width: 80px;
     aspect-ratio: 1;
@@ -219,11 +230,17 @@ p a{
     #menuWheel{
         display: none!important;
     }
-    #sence2{
+    #sence2,#sence3,#sence4,#sence5,#sence6{
         padding: 30px;
     }
-    .boxPic,.box-info{
+    .boxPic,.box-info,.boxAvt{
         width: 100%;
-        margin: 20px;
+        margin: 20px 0;
+    }
+    
+    header{
+        display: none!important;
+        height: fit-content;
+        justify-content: flex-start;
     }
 }

@@ -9,6 +9,10 @@ $(document).ready(async()=>{
         $(".circle-avatar").eq(i).addClass(animated[Math.floor(Math.random()*animated.length)]);
     }
 
+    setTimeout(()=>{
+        bgMusic.play()
+    },1000)
+
 
     var wow = new WOW({
     boxClass:     'wow',      // default
@@ -18,7 +22,6 @@ $(document).ready(async()=>{
     live:         true        // default
     })
     wow.init();
-    bgMusic.play()
     $(window).scroll(function () { 
         const currentScrollPos = window.scrollY;
         if (currentScrollPos > $("#sence1").height()-10 && currentScrollPos < ($("#sence1").height() + $("#sence2").height()-20)) {
@@ -35,14 +38,43 @@ $(document).ready(async()=>{
                 fontWeight:"700",
             })
             
-        }else if (currentScrollPos > ($("#sence1").height() + $("#sence2").height())-20) {
+        }else if (currentScrollPos > ($("#sence1").height() + $("#sence2").height())-20 && currentScrollPos< ($("#sence1").height() + $("#sence2").height()*2 - 20)) {
+            $("#menuWheel").show();         
+
             $("#menuWheel li").css({
                 fontWeight:"500",
             })
             $("#menuWheel li:nth-child(2)").css({
                 fontWeight:"700",
             })
-        } else {
+        }else if (currentScrollPos > ($("#sence1").height() + $("#sence2").height()*2)-20 && currentScrollPos< ($("#sence1").height() + $("#sence2").height()*3 - 20)) {
+            $("#menuWheel").show();         
+
+            $("#menuWheel li").css({
+                fontWeight:"500",
+            })
+            $("#menuWheel li:nth-child(3)").css({
+                fontWeight:"700",
+            })
+        } else if (currentScrollPos > ($("#sence1").height() + $("#sence2").height()*3)-20 && currentScrollPos< ($("#sence1").height() + $("#sence2").height()*4 - 20)) {
+            $("#menuWheel").show();         
+
+            $("#menuWheel li").css({
+                fontWeight:"500",
+            })
+            $("#menuWheel li:nth-child(4)").css({
+                fontWeight:"700",
+            })
+        } else if (currentScrollPos > ($("#sence1").height() + $("#sence2").height()*4)-20 && currentScrollPos< ($("#sence1").height() + $("#sence2").height()*5 - 20)) {
+            $("#menuWheel").show();         
+
+            $("#menuWheel li").css({
+                fontWeight:"500",
+            })
+            $("#menuWheel li:nth-child(5)").css({
+                fontWeight:"700",
+            })
+        } else{
             $("header").fadeIn();
             $("#menuWheel").hide();
         }
