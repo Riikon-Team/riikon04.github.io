@@ -1,17 +1,47 @@
 const bgMusic = new Audio("https://cdn.glitch.global/dc6948cb-dff5-4efc-86db-fe258b6f1750/Herta%20Space%20Station%20OST%20Extended%20%20Honkai%20Star%20Rail.mp3")
-bgMusic.volume=0.1
+bgMusic.volume=0.5
+const bgVideo = document.querySelector("#bg-video")
+
+document.FLAG = {
+    'focus':false
+}
 
 const animated=["animate__bounceInDown", "animate__backInDown", "animate__backInLeft", "animate__backInUp","animate__backInUp" ,"animate__lightSpeedInLeft","animate__rotateInUpRight","animate__rollIn","animate__zoomIn","animate__zoomInDown"]
 
 $(document).ready(async()=>{
+    location.hash = ""
+    window.scrollTo(0,0)
+
+    const data = await fetch("./src/asset/json/data.json")
+    .then(res => res.json()).then(data => data)
+    .catch(err =>{
+        alert("Lỗi lon gì rồi! Báo ad dùm tao!")
+    })
+
+    const data2 = await fetch("./src/asset/json/data2.json")
+    .then(res => res.json()).then(data => data)
+    .catch(err =>{
+        alert("Lỗi lon gì rồi! Báo ad dùm tao!")
+    })
+
+    initSence3(data)
+    
+    initSence5(data2)
+
     for (let i=0;i<$(".circle-avatar").length;i++) {
         $(".circle-avatar").addClass("wow");
         $(".circle-avatar").eq(i).addClass(animated[Math.floor(Math.random()*animated.length)]);
     }
 
-    setTimeout(()=>{
-        bgMusic.play()
-    },1000)
+    document.onclick = ()=>{
+        if (!document.FLAG.focus) {
+            document.FLAG.focus=true
+            bgVideo.play()
+            bgMusic.play()
+        }
+    }
+
+
 
 
     var wow = new WOW({
@@ -81,3 +111,84 @@ $(document).ready(async()=>{
     lastScrollPos = currentScrollPos;
     });
 })
+
+function initSence3(data) {
+    let text = ""
+    data.forEach((e, i) => {
+        text+=`<div class="circle-avatar show-more" title="${e.name}">
+                    <img src="./src/asset/img/user/${e.avatar}" alt="${e.discord}">
+                </div>`
+    });
+    text+=`<div class="circle-avatar" title="Và các thành viên khác">
+            <img src="./src/asset/img/user/discord_avt_1.png" alt="">
+        </div>`
+    $("#sence3 .boxAvt").html(text)
+
+    $(".circle-avatar.show-more").each(function (index, element) {
+        $(element).on("click",function(){
+            sence3ShowMore(data,index)
+        })      
+    });
+
+    $("#pop-info>span").on("click", function () {
+        $("#pop-info").removeClass("show")
+    })
+
+}
+
+function sence3ShowMore(data,i) {
+    $("#pop-info").addClass("show")
+    $("#pop-info .avt img").attr("src",`./src/asset/img/user/${data[i].avatar}`)
+    $("#pop-info .info .name").text(data[i].name)
+    $("#pop-info .info .discord").text("@"+ data[i].discord)
+    $("#pop-info .info .bio").text(data[i].bio)
+    $("#pop-info .info .join span").text(new Date(data[i].join * 1000).toLocaleDateString("vi-VN"))
+    let k = ""
+    data[i].social.forEach((e,j)=>{
+        k+=`
+        <a href="${e.link}" target="_blank" rel="noopener noreferrer">
+        <div class="item">
+            <div class="logo">
+                <img src="./src/asset/img/logo/${e.name}.png" alt="" srcset="">
+            </div>
+            <div class="name">${e.uname}</div>
+        </div>
+        </a>
+        `
+    })
+    $("#pop-info .info .social-box").html(k)
+    
+}
+
+function initSence5(data2) {
+    let t = ""
+    data2.forEach((e,i)=>{
+        t+=`<div class="item">
+        <div class="avt">
+            <img src="${e.avt}" alt="" srcset="">
+        </div>
+        <div class="info">
+            <p class="title">
+                <a href="${e.link}" target="_blank" rel="noopener noreferrer">
+                ${e.title}
+                </a>
+            </p>
+            <p class="author" style="font-style: italic;">
+            ${e.author}
+            </p>
+            <p class="decsription">
+            ${e.des}
+            </p>
+        </div>
+    </div>`
+    })
+    $("#sence5 .project-box").html(t)
+}
+
+window.onscroll = ()=>{
+    if ($("#sence1").height() < window.scrollY) {
+        $("#sence1 #bg-video").hide()
+    }else{
+        $("#sence1 #bg-video").show()
+    }
+}
