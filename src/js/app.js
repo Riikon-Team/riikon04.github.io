@@ -1,3 +1,23 @@
+const CAPTION = [
+    "Lũ chuyên ăn cứt đá bô",
+    "while (life) {eat(); play(); poop(); study(); sleep(); coding();}",
+    "Chap lurk, Chap lurk...",
+    "Tới giờ làm Sensei rồi, các học sinh yêu quý - Moggu",
+    "Tại sao tao phải cứu mày, trong khi cái việc cho mày chết, sẽ làm cho cho game này hoàng thành - Regiko",
+    "Đéo phải wibu, đéo có tư cách nói chiện với bọn tao",
+    "T1 vô địch!!! T1 vô địch!!! T1 vô địch!!!",
+    "Đít cọt, đít cọt, đít cọt, nghe hong,  đít cọt ó nghe hong...",
+    "Tao đi học ngày chủ nhật",
+    "Những sự thật là lùng mà bạn chắc đã biết: Thằng nào cầm Skye, auto binded đồng đội",
+    "Allahu Akbar...maslahkum allahu akbaaaar...",
+    "Anbatokum aaaaaaaaaaaaaa",
+    "Nó gọi là choẳng mấy khi...",
+    "A hopeless romantic all my life, surrounded by couples all the time",
+    "Lovely rori-rori kami, kourin (Zukyuun!)"
+]
+
+document.INTERVAL = {}
+
 const bgMusic = new Audio("https://cdn.glitch.global/dc6948cb-dff5-4efc-86db-fe258b6f1750/Herta%20Space%20Station%20OST%20Extended%20%20Honkai%20Star%20Rail.mp3")
 bgMusic.volume=0.5
 const bgVideo = document.querySelector("#bg-video")
@@ -9,6 +29,10 @@ document.FLAG = {
 const animated=["animate__bounceInDown", "animate__backInDown", "animate__backInLeft", "animate__backInUp","animate__backInUp" ,"animate__lightSpeedInLeft","animate__rotateInUpRight","animate__rollIn","animate__zoomIn","animate__zoomInDown"]
 
 $(document).ready(async()=>{
+    setTimeout(()=>{
+        runCaption()
+    },500)
+    initEventImg1()
     location.hash = ""
     window.scrollTo(0,0)
 
@@ -111,6 +135,61 @@ $(document).ready(async()=>{
     lastScrollPos = currentScrollPos;
     });
 })
+
+function initEventImg1() {
+    
+    $("#sence2 .boxPic img").each((i,e)=>{
+        $(e).on("click", function (){
+            $("#view>div>img").attr("src",$(e).attr("src"))
+            $("#view").addClass("true");
+        })
+    })
+
+    $("#view").on("click",()=>{
+        $("#view").removeClass("true");
+    })
+}
+
+function runCaption() {
+    let time = 0
+    let title = ""
+    const caption = CAPTION[Math.floor(Math.random() * CAPTION.length)]
+    const captionSliced = chunkString(caption,parseInt(caption.length / 20))
+    document.INTERVAL.caption  = setInterval(()=>{
+        if (captionSliced.length!=0) {
+            title = title + captionSliced[0]
+            captionSliced.shift()
+            $("#sence1 .caption").text(title + "_")
+            return 
+        }
+        time+=80
+        if (time >= 5000) {
+            if (title=="") {
+                clearInterval(document.INTERVAL.caption)
+                runCaption()
+            }
+            title = title.substring(0,title.length - 2 <0?0:title.length - 5)
+            $("#sence1 .caption").text(title + "_")
+        }
+        if (time % 320 == 0) {
+            $("#sence1 .caption").text(title + " ")
+            return
+        }
+
+        if (time % 160 == 0) {
+            $("#sence1 .caption").text(title + "_")
+        }
+        
+    },80)
+}
+
+function chunkString(str, chunkSize) {
+    const result = [];
+    for (let i = 0; i < str.length; i += chunkSize) {
+      result.push(str.slice(i, i + chunkSize));
+    }
+    return result;
+}
 
 function initSence3(data) {
     let text = ""

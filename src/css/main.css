@@ -456,6 +456,12 @@ p a{
     height: 80%;
 }
 
+#sence5 .project-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
 #sence5 .project-box .item{
     width: 100%;
     height: fit-content;
@@ -537,4 +543,29 @@ p a{
         width: 140%;
         margin: auto;
     }
+}
+
+#view{
+    position: fixed;
+    top: 0;left: 0;right: 0;bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    scale: 0;
+    backdrop-filter: brightness(.5);
+}
+
+#view>div{
+    max-width: 80%;
+    max-height: 90%;
+    overflow: hidden;
+}
+
+#view img{
+    width: 100%;
+}
+
+#view.true{
+    scale: 1;
 }
