@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDiscord } from '../contexts/DiscordContext';
+import { useRiikonData } from '../contexts/RiikonDataContext';
 import './ProjectList.css'; // Reuse existing CSS for consistency
 
 function FeaturedProjects() {
@@ -8,7 +8,7 @@ function FeaturedProjects() {
     projectsLoading, 
     projectsError, 
     fetchProjects 
-  } = useDiscord();
+  } = useRiikonData();
 
   useEffect(() => {
     fetchProjects();

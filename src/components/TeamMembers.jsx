@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDiscord } from '../contexts/DiscordContext';
+import { useRiikonData } from '../contexts/RiikonDataContext';
 
 function TeamMembers() {
   const { 
@@ -7,7 +7,7 @@ function TeamMembers() {
     teamLeadsLoading, 
     teamLeadsError, 
     fetchTeamLeads 
-  } = useDiscord();
+  } = useRiikonData();
 
   useEffect(() => {
     fetchTeamLeads();

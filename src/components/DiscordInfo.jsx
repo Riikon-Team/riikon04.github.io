@@ -1,8 +1,8 @@
-import { useDiscord } from '../contexts/DiscordContext';
+import { useRiikonData } from '../contexts/RiikonDataContext';
 import './DiscordInfo.css';
 
 function DiscordInfo() {
-  const { serverInfo, serverLoading, serverError } = useDiscord();
+  const { serverInfo, serverLoading, serverError } = useRiikonData();
 
   if (serverLoading) {
     return <div className="discord-info loading">Loading server information...</div>;

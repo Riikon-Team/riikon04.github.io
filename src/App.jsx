@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './contexts/ThemeContext'
-import { DiscordProvider } from './contexts/DiscordContext'
+import { RiikonDataProvider } from './contexts/RiikonDataContext'
 import Layout from './components/Layout'
 import LoadingScreen from './components/LoadingScreen'
 import HomePage from './pages/HomePage'
@@ -30,7 +30,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <DiscordProvider>
+      <RiikonDataProvider>
         {loading ? (
           <LoadingScreen progress={progress} />
         ) : (
@@ -44,7 +44,7 @@ function App() {
             </Layout>
           </Router>
         )}
-      </DiscordProvider>
+      </RiikonDataProvider>
     </ThemeProvider>
   )
 }

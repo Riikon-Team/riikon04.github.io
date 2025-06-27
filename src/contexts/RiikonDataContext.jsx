@@ -4,11 +4,11 @@ const API_BASE_URL = 'https://riikon04-web-server.onrender.com/api';
 
 const ROLE_ADMIN_ID = '994270954526097448'
 // Create context
-const DiscordContext = createContext();
+const RiikonDataContext = createContext();
 
-export const useDiscord = () => useContext(DiscordContext);
+export const useRiikonData = () => useContext(RiikonDataContext);
 
-export const DiscordProvider = ({ children }) => {
+export const RiikonDataProvider = ({ children }) => {
   // Server data state
   const [serverInfo, setServerInfo] = useState(null);
   const [serverLoading, setServerLoading] = useState(true);
@@ -155,8 +155,8 @@ export const DiscordProvider = ({ children }) => {
   };
 
   return (
-    <DiscordContext.Provider value={value}>
+    <RiikonDataContext.Provider value={value}>
       {children}
-    </DiscordContext.Provider>
+    </RiikonDataContext.Provider>
   );
 };
