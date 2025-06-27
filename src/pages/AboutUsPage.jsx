@@ -13,7 +13,7 @@ function AboutUsPage() {
           <h2 className="section-title">Our Story</h2>
           <div className="about-content">
             <div className="about-text">
-              <p>
+              {/* <p>
                 Our team was formed with a shared passion for technology and creativity.
                 We started as a small group of friends who enjoyed collaborating on
                 different projects and learning from each other.
@@ -27,16 +27,16 @@ function AboutUsPage() {
                 Today, we work on a variety of projects ranging from web development to
                 game design, always with the goal of learning, growing, and creating
                 something meaningful together.
-              </p>
+              </p> */}
             </div>
             <div className="about-values">
-              <h3>Our Values</h3>
+              {/* <h3>Our Values</h3>
               <ul>
                 <li><strong>Collaboration:</strong> We believe in the power of working together.</li>
                 <li><strong>Learning:</strong> We're always seeking to improve and learn new skills.</li>
                 <li><strong>Creativity:</strong> We encourage innovative ideas and unique approaches.</li>
-                <li><strong>Community:</strong> We value building a supportive and inclusive environment.</li>
-              </ul>
+                <li><strong>Community:</strong> We value building a supportive and inclusive environment.</li> */}
+              {/* </ul> */}
             </div>
           </div>
         </div>

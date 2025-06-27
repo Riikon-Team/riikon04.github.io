@@ -23,7 +23,7 @@ function FeaturedProjects() {
   }
 
   // Select up to 2 projects to feature
-  const featuredProjects = projects.slice(0, 2);
+  const featuredProjects = projects.slice(0, 6);
 
   if (featuredProjects.length === 0) {
     return <div className="featured-projects empty">No featured projects available.</div>;
@@ -33,24 +33,72 @@ function FeaturedProjects() {
     <div className="featured-projects">
       <div className="project-list">
         {featuredProjects.map(project => (
-          <div className="project-card" key={project.id}>
-            <div className="project-image">
-              <img 
-                src={project.imageUrl || `https://via.placeholder.com/300x200?text=${encodeURIComponent(project.name)}`} 
-                alt={project.name} 
-              />
-            </div>
-            <div className="project-content">
+          <div className="project-card" key={project._id || project.id}>
+            <div className="project-header">
               <h3 className="project-title">{project.name}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tags">
-                {project.languages && project.languages.map((tag, index) => (
-                  <span className="tag" key={index}>{tag}</span>
-                ))}
+              <div className="project-date">
+                <i className="bi bi-calendar-check"></i>
+                <span>{new Date(project.deployedAt).toLocaleDateString()}</span>
               </div>
+            </div>
+            
+            <p className="project-description">{project.description}</p>
+            
+            <div className="project-tags">
+              {project.languages && project.languages.map((lang, index) => {
+                const getLanguageIcon = (language) => {
+                  const langLower = language.toLowerCase();
+                  switch (langLower) {
+                    case 'javascript':
+                    case 'js':
+                      return { icon: 'bi-filetype-js', color: '#f7df1e' };
+                    case 'typescript':
+                    case 'ts':
+                      return { icon: 'bi-filetype-tsx', color: '#3178c6' };
+                    case 'react':
+                      return { icon: 'bi-filetype-jsx', color: '#61dafb' };
+                    case 'python':
+                      return { icon: 'bi-filetype-py', color: '#3776ab' };
+                    case 'java':
+                      return { icon: 'bi-cup-hot', color: '#ed8b00' };
+                    case 'html':
+                      return { icon: 'bi-filetype-html', color: '#e34f26' };
+                    case 'css':
+                      return { icon: 'bi-filetype-css', color: '#1572b6' };
+                    case 'node.js':
+                    case 'nodejs':
+                      return { icon: 'bi-braces', color: '#339933' };
+                    case 'php':
+                      return { icon: 'bi-filetype-php', color: '#777bb4' };
+                    case 'c++':
+                      return { icon: 'bi-file-code', color: '#00599c' };
+                    case 'c#':
+                      return { icon: 'bi-file-code', color: '#239120' };
+                    default:
+                      return { icon: 'bi-code-slash', color: '#6c757d' };
+                  }
+                };
+                
+                const { icon, color } = getLanguageIcon(lang);
+                
+                return (
+                  <span className="tag" key={index} style={{ borderColor: color }}>
+                    <i className={`bi ${icon}`} style={{ color }}></i> {lang}
+                  </span>
+                );
+              })}
+            </div>
+            
+            <div className="project-footer">
+              {project.githubUrl && (
+                <a href={project.githubUrl} className="project-link github-link" target="_blank" rel="noopener noreferrer">
+                  <i className="bi bi-github"></i> View on GitHub
+                </a>
+              )}
+              
               {project.websiteUrl && (
-                <a href={project.websiteUrl} className="btn project-link" target="_blank" rel="noopener noreferrer">
-                  View Website
+                <a href={project.websiteUrl} className="project-link website-link" target="_blank" rel="noopener noreferrer">
+                  <i className="bi bi-globe"></i> Visit Website
                 </a>
               )}
             </div>

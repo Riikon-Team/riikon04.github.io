@@ -22,9 +22,15 @@ function Footer() {
           <div className="footer-section">
             <h3>Connect With Us</h3>
             <div className="social-links">
-              <a href="#" className="social-link">Facebook</a>
-              <a href="#" className="social-link">YouTube</a>
-              <a href="#" className="social-link">Discord</a>
+              <a href="https://www.facebook.com/riikon04" className="social-link" aria-label="Facebook">
+                <i className="bi bi-facebook"></i>
+              </a>
+              <a href="https://www.youtube.com/@riikonteam" className="social-link" aria-label="YouTube">
+                <i className="bi bi-youtube"></i>
+              </a>
+              <a href="https://youtu.be/dQw4w9WgXcQ" className="social-link" aria-label="Discord">
+                <i className="bi bi-discord"></i>
+              </a>
             </div>
           </div>
         </div>

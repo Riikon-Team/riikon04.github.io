@@ -1,53 +1,65 @@
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
+}
+
+/* Ensure maximum 4 columns on larger screens */
+@media (min-width: 1200px) {
+  .project-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .project-card {
   background-color: var(--card-bg);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.project-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
-}
-
-.project-content {
-  padding: 1.5rem;
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
 }
 
 .project-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  margin: 0;
+  color: var(--text-color);
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.project-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
 }
 
 .project-description {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+  color: var(--text-secondary, #777);
+  margin-bottom: 1.5rem;
   line-height: 1.6;
+  flex-grow: 1;
+  font-size: 0.95rem;
 }
 
 .project-tags {
@@ -58,16 +70,61 @@
 }
 
 .tag {
-  display: inline-block;
-  background-color: #646cff;
-  color: white;
-  padding: 0.25rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background-color: rgba(100, 108, 255, 0.1);
+  color: #646cff;
+  padding: 0.3rem 0.6rem;
   border-radius: 20px;
   font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.project-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
 }
 
 .project-link {
-  display: inline-block;
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.github-link {
+  background-color: #333;
+  color: white;
+}
+
+.github-link:hover {
+  background-color: #24292e;
+}
+
+.website-link {
+  background-color: #646cff;
+  color: white;
+}
+
+.website-link:hover {
+  background-color: #535bf2;
+}
+
+/* Loading, error and empty states */
+.project-list.loading,
+.project-list.error,
+.project-list.empty {
+  grid-template-columns: 1fr;
   text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary, #666);
+  font-style: italic;
 }

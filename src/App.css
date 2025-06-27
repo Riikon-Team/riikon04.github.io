@@ -61,6 +61,9 @@
 
 .section {
   padding: 4rem 0;
+  transform: translateY(0);
+  opacity: 1;
+  transform-origin: center;
 }
 
 .section-title {
@@ -105,6 +108,23 @@
 
 .to-top-btn.visible {
   opacity: 1;
+}
+
+.app-content {
+  min-height: 100vh;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.app-content.visible {
+  opacity: 1;
+}
+
+/* Animation support for loading and content transitions */
+.loading-screen-container {
+  transform-origin: center;
+  transition: opacity 0.5s ease;
 }
 
 /* Theme specific styles */

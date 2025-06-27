@@ -1,81 +1,113 @@
 .contact-section {
-  padding: 2rem 0;
+  padding: 3rem 0;
+  text-align: center;
+  color: white;
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-subheading {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
 }
 
 .contact-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 }
 
-.contact-info {
+.contact-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.contact-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-platforms {
   flex: 1;
   min-width: 300px;
 }
 
-.contact-info h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+.platform {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: left;
 }
 
-.contact-info ul {
-  list-style: none;
-  padding: 0;
+.platform-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+}
+
+.platform-icon i {
+  font-size: 1.8rem;
+}
+
+.platform-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.platform-info p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
-.contact-info li {
+.social-links a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
-}
-
-.contact-info i {
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.contact-form {
-  flex: 2;
-  min-width: 300px;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.form-group textarea {
-  resize: vertical;
-}
-
-.submit-btn {
-  background-color: #5865F2;
+  justify-content: center;
   color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
-.submit-btn:hover {
-  background-color: #4752c4;
+.social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.social-links i {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  
+  .platform {
+    margin-bottom: 1.5rem;
+  }
 }
