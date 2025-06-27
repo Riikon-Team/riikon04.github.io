@@ -12,6 +12,8 @@ function HomePage() {
         title="Welcome to Riikon Team"
         subtitle="The research community studies which is more stupid, the pig or the piglet?"
         backgroundImage="/img/bg_YuanyuanBear.png" 
+        // videoUrl="img/Y2meta.app-Cars - I Dowt it (Fondo de pantalla animado)-(1080p60).mp4"
+        // type='video'
       />
       
       <section className="section">
@@ -22,9 +24,8 @@ function HomePage() {
       </section>
       
       <section className="section">
-        <h2 className="section-title">Our Team</h2>
+        {/* <h2 className="section-title">Our Team</h2> */}
         <div className="container">
-          <h3>Leader</h3>
           <TeamMembers />
         </div>
       </section>

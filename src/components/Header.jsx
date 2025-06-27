@@ -2,17 +2,16 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import './Header.css';
 
-function Header({ visible }) {
+function Header({ visible = true }) {
   const { theme, setTheme } = useTheme();
-  
-  const handleThemeChange = (e) => {
-    setTheme(e.target.value);
-  };
   
   return (
     <header className={`header ${visible ? 'visible' : ''}`}>
       <div className="container header-container">
-        <Link to="/" className="logo">Team Logo</Link>
+        <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/logo.png" alt="Riikon Team Logo" style={{ height: '40px', marginRight: '10px' }} />
+          <span>Riikon Team</span>
+        </Link>
         <nav className="navigation">
           <ul>
             <li><Link to="/">Home</Link></li>
@@ -20,12 +19,15 @@ function Header({ visible }) {
             <li><Link to="/about-us">About Us</Link></li>
           </ul>
         </nav>
-        <div className="theme-selector">
-          <select value={theme} onChange={handleThemeChange}>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="system">System</option>
-          </select>
+        <div className="theme-toggle">
+          <button 
+            className="btn btn-outline-secondary theme-btn"
+            onClick={() => setTheme(theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light')}
+          >
+            {theme === 'light' && <i className="bi bi-sun"></i>}
+            {theme === 'dark' && <i className="bi bi-moon"></i>}
+            {theme === 'system' && <i className="bi bi-gear"></i>}
+          </button>
         </div>
       </div>
     </header>

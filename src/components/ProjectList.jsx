@@ -26,32 +26,40 @@ function ProjectList() {
     return <div className="project-list empty">No projects found.</div>;
   }
 
+  const topProjects = projects.slice(0, 7);
+
   return (
     <div className="project-list">
-      {projects.map(project => (
-        <div className="project-card" key={project.id}>
-          <div className="project-image">
-            <img 
-              src={project.imageUrl || `https://via.placeholder.com/300x200?text=${encodeURIComponent(project.name)}`} 
-              alt={project.name} 
-            />
-          </div>
-          <div className="project-content">
+      {topProjects.map(project => (
+        <div className="project-card" key={project._id || project.id}>
+          <div className="project-header">
             <h3 className="project-title">{project.name}</h3>
-            <p className="project-description">{project.description}</p>
-            <div className="project-tags">
-              {project.languages && project.languages.map((lang, index) => (
-                <span className="tag" key={index}>{lang}</span>
-              ))}
+            <div className="project-date">
+              <i className="bi bi-calendar-check"></i>
+              <span>{new Date(project.deployedAt).toLocaleDateString()}</span>
             </div>
-            {project.websiteUrl && (
-              <a href={project.websiteUrl} className="btn project-link" target="_blank" rel="noopener noreferrer">
-                View Website
+          </div>
+          
+          <p className="project-description">{project.description}</p>
+          
+          <div className="project-tags">
+            {project.languages && project.languages.map((lang, index) => (
+              <span className="tag" key={index}>
+                <i className="bi bi-code-slash"></i> {lang}
+              </span>
+            ))}
+          </div>
+          
+          <div className="project-footer">
+            {project.githubUrl && (
+              <a href={project.githubUrl} className="project-link github-link" target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-github"></i> View on GitHub
               </a>
             )}
-            {project.githubUrl && (
-              <a href={project.githubUrl} className="btn project-link github-link" target="_blank" rel="noopener noreferrer">
-                View on GitHub
+            
+            {project.websiteUrl && (
+              <a href={project.websiteUrl} className="project-link website-link" target="_blank" rel="noopener noreferrer">
+                <i className="bi bi-globe"></i> Visit Website
               </a>
             )}
           </div>
