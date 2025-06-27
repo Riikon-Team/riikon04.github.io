@@ -22,7 +22,7 @@ function FeaturedProjects() {
     return <div className="featured-projects error">Failed to load projects.</div>;
   }
 
-  // Select up to 2 projects to feature
+  // Select up to 6 projects to feature
   const featuredProjects = projects.slice(0, 6);
 
   if (featuredProjects.length === 0) {
