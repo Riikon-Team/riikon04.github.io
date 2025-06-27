@@ -1,0 +1,116 @@
+.team-members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.team-member-card {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: visible;
+  transition: transform 0.3s ease;
+}
+
+.avatar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.status-dot.online {
+  background-color: #43b581;
+}
+
+.status-dot.idle {
+  background-color: #faa61a;
+}
+
+.status-dot.dnd {
+  background-color: #f04747;
+}
+
+.status-dot.offline {
+  background-color: #747f8d;
+}
+
+.member-details {
+  position: absolute;
+  top: 0;
+  left: 110%; 
+  width: 200px;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  background-color: var(--card-bg, #ffffff1c);
+}
+
+.team-member-card:hover .member-details {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.team-member-card:hover .team-member-avatar {
+  transform: scale(1.05);
+}
+
+.team-member-name {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.team-member-role {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.team-member-bio {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.member-status {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  color: #555;
+}
+
+/* Loading and error states */
+.team-members.loading,
+.team-members.error {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}

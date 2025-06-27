@@ -9,8 +9,9 @@ function HomePage() {
   return (
     <div className="home-page">
       <HeroSection 
-        title="Welcome to Our Team" 
-        subtitle="We create amazing projects together"
+        title="Welcome to Riikon Team"
+        subtitle="The research community studies which is more stupid, the pig or the piglet?"
+        backgroundImage="/img/bg_YuanyuanBear.png" 
       />
       
       <section className="section">
@@ -21,8 +22,9 @@ function HomePage() {
       </section>
       
       <section className="section">
+        <h2 className="section-title">Our Team</h2>
         <div className="container">
-          <h2 className="section-title">Our Team</h2>
+          <h3>Leader</h3>
           <TeamMembers />
         </div>
       </section>
