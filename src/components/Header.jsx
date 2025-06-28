@@ -20,7 +20,7 @@ function Header({ visible = true }) {
         </nav>
         <div className="theme-toggle">
           <button 
-            className="btn btn-outline-secondary theme-btn"
+            style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', outline: 'none', color: 'inherit' }}
             onClick={() => setTheme(theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light')}
           >
             {theme === 'light' && <i className="bi bi-sun"></i>}

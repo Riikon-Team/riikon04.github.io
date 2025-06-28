@@ -53,8 +53,7 @@
 
 .social-link {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #646cff;
+  padding: 0.5rem;
   color: white !important;
   border-radius: 4px;
   text-decoration: none;

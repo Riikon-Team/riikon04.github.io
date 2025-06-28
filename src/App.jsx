@@ -4,6 +4,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { RiikonDataProvider } from "./contexts/RiikonDataContext";
 import Layout from "./components/Layout";
 import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutUsPage from "./pages/AboutUsPage";
@@ -134,7 +135,8 @@ function App() {
           }}
         >
           <Router>
-            {/* {progress > 90 && ( */}
+            <ScrollToTop />
+            {progress > 90 && (
               <Layout>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
@@ -142,7 +144,7 @@ function App() {
                   <Route path="/about-us" element={<AboutUsPage />} />
                 </Routes>
               </Layout>
-            {/* )} */}
+            )}
           </Router>
         </div>
 
