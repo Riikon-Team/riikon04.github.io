@@ -50,11 +50,21 @@ function ActivityDisplay({ activity }) {
   
   return (
     <div className="user-activity">
+      {(activity.smallImageURL || activity.largeImageURL) && (
+        <div className="activity-images">
+          {activity.smallImageURL && (
+            <img src={activity.smallImageURL} alt="" className="activity-small-image" />
+          )}
+          {activity.largeImageURL && (
+            <img src={activity.largeImageURL} alt="" className="activity-large-image" />
+          )}
+          
+        </div>
+      )}
       <div className="activity-header">
         <div className="activity-type">{getActivityType(activity.type)}</div>
         <div className="activity-name">{activity.name}</div>
       </div>
-      
       {activity.details && (
         <div className="activity-details">{activity.details}</div>
       )}
@@ -66,18 +76,6 @@ function ActivityDisplay({ activity }) {
       {activity.timestamps && (
         <div className="activity-duration">
           {activity.timestamps.end ? 'Duration: ' : 'Elapsed: '}{elapsed}
-        </div>
-      )}
-      
-      {(activity.smallImageURL || activity.largeImageURL) && (
-        <div className="activity-images">
-          {activity.smallImageURL && (
-            <img src={activity.smallImageURL} alt="" className="activity-small-image" />
-          )}
-          {activity.largeImageURL && (
-            <img src={activity.largeImageURL} alt="" className="activity-large-image" />
-          )}
-          
         </div>
       )}
     </div>
@@ -150,7 +148,7 @@ function TeamMembers() {
           
           {member.presence?.activities && member.presence.activities.length > 0 && (
             <div className="member-activities">
-              {member.presence.activities.map((activity, index) => (
+              {member.presence.activities.slice(0, 2).map((activity, index) => (
                 <ActivityDisplay key={index} activity={activity} />
               ))}
             </div>

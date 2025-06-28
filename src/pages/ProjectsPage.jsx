@@ -7,6 +7,7 @@ function ProjectsPage() {
       <HeroSection 
         title="Our Projects" 
         subtitle="Discover what we've been working on"
+        animationStyle={'coding'}
       />
       
       <section className="section">

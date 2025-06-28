@@ -64,7 +64,7 @@ export const RiikonDataProvider = ({ children }) => {
       
       const url = roleId 
         ? `${API_BASE_URL}/discord/users?roleId=${roleId}` 
-        : `${API_BASE_URL}/discord/users?limit=50`;
+        : `${API_BASE_URL}/discord/users?limit=50&sortBy=online`;
       
       const response = await fetch(url);
       

@@ -9,59 +9,68 @@ function Gallery() {
   const galleryItems = useMemo(() => [
     {
       id: 1,
-      title: "Project Image 1",
       imageUrl: "/img/gallery/1.png"
     },
     {
       id: 2,
-      title: "Project Image 2",
       imageUrl: "/img/gallery/2.png"
     },
     {
       id: 3,
-      title: "Project Image 3",
       imageUrl: "/img/gallery/3.png"
     },
     {
       id: 4,
-      title: "Project Image 4",
       imageUrl: "/img/gallery/4.png"
     },
     {
       id: 5,
-      title: "Project Image 5",
       imageUrl: "/img/gallery/5.png"
     },
     {
       id: 6,
-      title: "Project Image 6",
       imageUrl: "/img/gallery/6.png"
     },
     {
       id: 7,
-      title: "Project Image 7",
       imageUrl: "/img/gallery/7.png"
     },
     {
       id: 8,
-      title: "Project Image 8",
       imageUrl: "/img/gallery/8.png"
     },
     {
       id: 9,
-      title: "Project Image 9",
       imageUrl: "/img/gallery/9.png"
     },
     {
       id: 10,
-      title: "Project Image 10",
       imageUrl: "/img/gallery/10.png"
     },
     {
       id: 11,
-      title: "Project Image 11",
       imageUrl: "/img/gallery/4.jpg"
     },
+    {
+      id: 12,
+      imageUrl: "/img/gallery/11.png"
+    },
+    {
+      id: 13,
+      imageUrl: "/img/gallery/12.png"
+    },
+    {
+      id: 14,
+      imageUrl: "/img/gallery/13.png"
+    },
+    {
+      id: 15,
+      imageUrl: "/img/gallery/14.png"
+    },
+    {
+      id: 16,
+      imageUrl: "/img/gallery/15.jpg"
+    }
   ], []);
   
   useEffect(() => {

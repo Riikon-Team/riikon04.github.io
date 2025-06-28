@@ -3,11 +3,80 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* Theme variables will be applied dynamically */
-  --bg-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
-  --card-bg: #1a1a1a;
+  /* Color System */
+  --color-primary: #64b7ff;
+  --color-primary-light: #53c5f2;
+  --color-primary-dark: #3883ca;
+  
+  --color-secondary: #9c27b0;
+  --color-secondary-light: #ba68c8;
+  --color-secondary-dark: #7b1fa2;
+  
+  --color-success: #43b581;
+  --color-error: #f04747;
+  --color-warning: #faa61a;
+  --color-info: #0091ea;
+  
+  /* Dark theme colors */
+  --dark-bg: #242424;
+  --dark-bg-secondary: #1a1a1a;
+  --dark-text: rgba(255, 255, 255, 0.87);
+  --dark-text-secondary: rgba(255, 255, 255, 0.6);
+  --dark-border: #333333;
+  
+  /* Light theme colors */
+  --light-bg: #ffffff;
+  --light-bg-secondary: #f9f9f9;
+  --light-text: #213547;
+  --light-text-secondary: #666666;
+  --light-border: #e5e5e5;
+  
+  /* Seasonal theme accent colors */
+  --season-christmas-primary: #e91eceff;
+  --season-christmas-secondary: #4eeaa9ff;
+  --season-halloween-primary: #ff6600;
+  --season-halloween-secondary: #9c27b0;
+  --season-autumn-primary: #e65100;
+  --season-autumn-secondary: #bf360c;
+  --season-summer-primary: #00c7ea;
+  --season-summer-secondary: #00b8d4;
+  --season-lunar-new-year-primary: #ffdf00;
+  --season-lunar-new-year-secondary: #ff3838;
+  --season-national-day-primary: #ff0000;
+  --season-national-day-secondary: #ffff00;
+  --season-mid-autumn-primary: #FF9800;
+  --season-mid-autumn-secondary: #E65100;
+  --season-coding-primary: #00ff8c;
+  --season-coding-secondary: #e0e0e0;
+  
+  /* Social media colors */
+  --color-discord: #5865F2;
+  --color-github: #24292e;
+  
+  /* Applied theme variables - dynamically set based on current theme */
+  --bg-color: var(--dark-bg);
+  --bg-color-secondary: var(--dark-bg-secondary);
+  --text-color: var(--dark-text);
+  --text-color-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border);
+  --card-bg: var(--dark-bg-secondary);
+  
+  /* Accent color (can be changed for different sections) */
+  --accent-color: var(--color-primary);
+  --accent-color-hover: var(--color-primary-light);
+  
+  /* Status colors */
+  --status-online: var(--color-success);
+  --status-idle: var(--color-warning);
+  --status-dnd: var(--color-error);
+  --status-offline: #747F8D;
+  
+  /* Shadow effects */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
 
+  /* Other system properties */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,11 +85,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--accent-color);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--accent-color-hover);
 }
 
 body {
@@ -76,4 +145,35 @@ button:focus-visible {
 
 #root {
   overflow-x: hidden;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--accent-color), var(--accent-color-hover));
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--accent-color-hover), var(--color-primary-dark));
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-color);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--bg-color);
 }

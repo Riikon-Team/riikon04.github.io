@@ -6,6 +6,8 @@ function AboutUsPage() {
       <HeroSection 
         title="About Us" 
         subtitle="Learn more about our team"
+        animationStyle={'auto'} // 'autumn', 'national-day', 'mid-autumn', 'summer'
+        backgroundImage="/img/bg_YuanyuanBear.jpg"
       />
       
       <section className="section">

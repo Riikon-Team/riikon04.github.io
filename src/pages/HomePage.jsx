@@ -11,9 +11,10 @@ function HomePage() {
       <HeroSection 
         title="Welcome to Riikon Team"
         subtitle="The research community studies which is more stupid, the pig or the piglet?"
-        backgroundImage="/img/bg_YuanyuanBear.jpg" 
+        backgroundImage="/img/1395622.jpg" 
         // videoUrl="img/Y2meta.app-Cars - I Dowt it (Fondo de pantalla animado)-(1080p60).mp4"
         // type='video'
+        animationStyle={'auto'} // 'autumn', 'national-day', 'mid-autumn', 'summer'
       />
       
       <section className="section">
