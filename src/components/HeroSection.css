@@ -2,6 +2,11 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .hero-section::before {
@@ -17,7 +22,7 @@
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   padding: 0 2rem;
 }
@@ -33,4 +38,307 @@
   max-width: 800px;
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* Video background */
+.hero-video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Particles container */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Typing cursor */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+/* Coding theme */
+.theme-coding {
+  background-color: #0a0a0a;
+}
+
+.theme-coding .hero-content h1 {
+  color: #00ff8c;
+  font-family: monospace;
+  text-shadow: 0 0 8px rgba(0, 255, 140, 0.8);
+}
+
+.theme-coding .hero-content p {
+  color: #e0e0e0;
+  font-family: monospace;
+}
+
+.code-particle {
+  position: absolute;
+  color: #00ff8c;
+  font-family: monospace;
+  will-change: transform;
+  font-weight: bold;
+}
+
+/* Anime theme */
+.theme-anime {
+  background-color: #121628;
+}
+
+.anime-particle {
+  position: absolute;
+  border-radius: 50%;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Cloud theme */
+.theme-cloud {
+  background-color: #add8e6;
+}
+
+.theme-cloud::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-cloud .hero-content h1 {
+  color: #333;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.theme-cloud .hero-content p {
+  color: #444;
+}
+
+.cloud-particle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  will-change: transform;
+}
+
+.cloud-particle::before,
+.cloud-particle::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.cloud-particle::before {
+  width: 60%;
+  height: 60%;
+  top: -30%;
+  left: 20%;
+}
+
+.cloud-particle::after {
+  width: 55%;
+  height: 55%;
+  top: -20%;
+  right: 15%;
+}
+
+/* Additional theme styles would go here for other themes */
+
+
+
+/* Halloween Theme */
+.theme-halloween {
+  background-color: #1e0a23;
+}
+
+.theme-halloween::before {
+  background: rgba(30, 10, 35, 0.6);
+}
+
+/* Lunar New Year Theme */
+.theme-lunar-new-year {
+  background-color: #9e1c23;
+}
+
+.theme-lunar-new-year::before {
+  background: rgba(158, 28, 35, 0.3);
+}
+
+/* Autumn Theme */
+.theme-autumn {
+  background-color: #7d4427;
+}
+
+.theme-autumn::before {
+  background: rgba(125, 68, 39, 0.121);
+}
+
+/* Summer Theme */
+.theme-summer {
+  background-color: #1e638a;
+}
+
+.theme-summer::before {
+  background: rgba(30, 99, 138, 0.3);
+}
+
+.summer-sun {
+  position: absolute;
+  z-index: 2;
+  transform-origin: center;
+}
+
+.sun-ray {
+  position: absolute;
+  transform-origin: bottom center;
+  z-index: 1;
+}
+
+.summer-particle {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  will-change: transform;
+}
+
+
+
+.autumn-leaf {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  will-change: transform;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* National Day Theme */
+.theme-national-day {
+  background-color: #cc000057;
+}
+
+.theme-national-day::before {
+  background: rgba(204, 0, 0, 0.1);
+}
+
+.national-flag {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  will-change: transform;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.4));
+}
+
+.national-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.national-firework {
+  position: absolute;
+  z-index: 2;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Mid-Autumn Theme */
+.theme-mid-autumn {
+  background-color: #5b3379;
+}
+
+.theme-mid-autumn::before {
+  background: rgba(91, 51, 121, 0.4);
+}
+
+.mid-autumn-moon {
+  position: absolute;
+  z-index: 2;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.mid-autumn-lantern {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  will-change: transform;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+.mid-autumn-star {
+  position: absolute;
+  z-index: 2;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Lunar New Year Theme */
+.theme-lunar-new-year {
+  background-color: #9e1c23;
+}
+
+.theme-lunar-new-year::before {
+  background: rgba(158, 28, 35, 0.3);
+}
+
+.lunar-new-year-particle {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  will-change: transform;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Halloween Theme */
+.theme-halloween {
+  background-color: #1e0a23;
+}
+
+.theme-halloween::before {
+  background: rgba(30, 10, 35, 0.6);
+}
+
+.halloween-particle {
+  position: absolute;
+  z-index: 2;
+  user-select: none;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Christmas Theme */
+.theme-christmas {
+  background-color: #142526;
+}
+
+.theme-christmas::before {
+  background: rgba(24, 61, 70, 0.399);
+}
+
+.christmas-particle {
+  position: absolute;
+  z-index: 2;
+  will-change: transform;
+  pointer-events: none;
 }

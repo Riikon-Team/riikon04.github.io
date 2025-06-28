@@ -51,31 +51,31 @@ function FeaturedProjects() {
                   switch (langLower) {
                     case 'javascript':
                     case 'js':
-                      return { icon: 'bi-filetype-js', color: '#f7df1e' };
+                      return { icon: 'bi-filetype-js', color: 'var(--lang-js, #f7df1e)' };
                     case 'typescript':
                     case 'ts':
-                      return { icon: 'bi-filetype-tsx', color: '#3178c6' };
+                      return { icon: 'bi-filetype-tsx', color: 'var(--lang-ts, #3178c6)' };
                     case 'react':
-                      return { icon: 'bi-filetype-jsx', color: '#61dafb' };
+                      return { icon: 'bi-filetype-jsx', color: 'var(--lang-react, #61dafb)' };
                     case 'python':
-                      return { icon: 'bi-filetype-py', color: '#3776ab' };
+                      return { icon: 'bi-filetype-py', color: 'var(--lang-python, #3776ab)' };
                     case 'java':
-                      return { icon: 'bi-cup-hot', color: '#ed8b00' };
+                      return { icon: 'bi-cup-hot', color: 'var(--lang-java, #ed8b00)' };
                     case 'html':
-                      return { icon: 'bi-filetype-html', color: '#e34f26' };
+                      return { icon: 'bi-filetype-html', color: 'var(--lang-html, #e34f26)' };
                     case 'css':
-                      return { icon: 'bi-filetype-css', color: '#1572b6' };
+                      return { icon: 'bi-filetype-css', color: 'var(--lang-css, #1572b6)' };
                     case 'node.js':
                     case 'nodejs':
-                      return { icon: 'bi-braces', color: '#339933' };
+                      return { icon: 'bi-braces', color: 'var(--lang-node, #339933)' };
                     case 'php':
-                      return { icon: 'bi-filetype-php', color: '#777bb4' };
+                      return { icon: 'bi-filetype-php', color: 'var(--lang-php, #777bb4)' };
                     case 'c++':
-                      return { icon: 'bi-file-code', color: '#00599c' };
+                      return { icon: 'bi-file-code', color: 'var(--lang-cpp, #00599c)' };
                     case 'c#':
-                      return { icon: 'bi-file-code', color: '#239120' };
+                      return { icon: 'bi-file-code', color: 'var(--lang-csharp, #239120)' };
                     default:
-                      return { icon: 'bi-code-slash', color: '#6c757d' };
+                      return { icon: 'bi-code-slash', color: 'var(--text-color-secondary)' };
                   }
                 };
                 

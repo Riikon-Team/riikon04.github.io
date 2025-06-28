@@ -10,7 +10,7 @@ function LoadingScreen({ progress, onAnimationComplete }) {
   const clipPathRender = (progress) => {
     const smoothWave = [];
     for (let i = 0; i <= 100; i += 2) {
-      const waveHeight = Math.sin((i + progress * 2) * 0.2) * 5;
+      const waveHeight = Math.sin((i + progress * 2) * 0.2) * 10;
       smoothWave.push(`${i}% ${100 - progress + waveHeight}%`);
     }
     smoothWave.push('100% 100%', '0% 100%');

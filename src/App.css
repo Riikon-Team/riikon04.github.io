@@ -12,7 +12,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--accent-color));
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
@@ -74,7 +74,7 @@
 .btn {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  background-color: #646cff;
+  background-color: var(--accent-color);
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -85,7 +85,7 @@
 }
 
 .btn:hover {
-  background-color: #535bf2;
+  background-color: var(--accent-color-hover);
 }
 
 .to-top-btn {
@@ -95,7 +95,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #646cff;
+  background-color: var(--accent-color);
   color: white;
   display: flex;
   justify-content: center;
@@ -129,13 +129,19 @@
 
 /* Theme specific styles */
 .dark-theme {
-  --bg-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
-  --card-bg: #1a1a1a;
+  --bg-color: var(--dark-bg);
+  --bg-color-secondary: var(--dark-bg-secondary);
+  --text-color: var(--dark-text);
+  --text-color-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border);
+  --card-bg: var(--dark-bg-secondary);
 }
 
 .light-theme {
-  --bg-color: #ffffff;
-  --text-color: #213547;
-  --card-bg: #f9f9f9;
+  --bg-color: var(--light-bg);
+  --bg-color-secondary: var(--light-bg-secondary);
+  --text-color: var(--light-text);
+  --text-color-secondary: var(--light-text-secondary);
+  --border-color: var(--light-border);
+  --card-bg: var(--light-bg-secondary);
 }

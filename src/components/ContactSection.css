@@ -1,7 +1,7 @@
 .contact-section {
   padding: 3rem 0;
   text-align: center;
-  color: white;
+  color: var(--text-color);
 }
 
 .contact-heading {
@@ -72,6 +72,7 @@
 .platform-info p {
   font-size: 1rem;
   opacity: 0.8;
+  color: var(--text-color-secondary);
 }
 
 .social-links {
@@ -89,7 +90,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-color);
   transition: all 0.3s ease;
 }
 

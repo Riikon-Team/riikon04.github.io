@@ -10,7 +10,6 @@ function Header({ visible = true }) {
       <div className="container header-container">
         <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
           <img src="/logo.png" alt="Riikon Team Logo" style={{ height: '40px', marginRight: '10px' }} />
-          <span>Riikon Team</span>
         </Link>
         <nav className="navigation">
           <ul>

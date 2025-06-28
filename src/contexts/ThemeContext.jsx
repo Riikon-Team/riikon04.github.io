@@ -20,7 +20,27 @@ export const ThemeProvider = ({ children }) => {
         currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
 
+      // Add the theme class
       body.classList.add(`${currentTheme}-theme`);
+      
+      // Update CSS variables based on theme
+      const root = document.documentElement;
+      if (currentTheme === 'dark') {
+        root.style.setProperty('--bg-color', 'var(--dark-bg)');
+        root.style.setProperty('--bg-color-secondary', 'var(--dark-bg-secondary)');
+        root.style.setProperty('--text-color', 'var(--dark-text)');
+        root.style.setProperty('--text-color-secondary', 'var(--dark-text-secondary)');
+        root.style.setProperty('--border-color', 'var(--dark-border)');
+        root.style.setProperty('--card-bg', 'var(--dark-bg-secondary)');
+      } else {
+        root.style.setProperty('--bg-color', 'var(--light-bg)');
+        root.style.setProperty('--bg-color-secondary', 'var(--light-bg-secondary)');
+        root.style.setProperty('--text-color', 'var(--light-text)');
+        root.style.setProperty('--text-color-secondary', 'var(--light-text-secondary)');
+        root.style.setProperty('--border-color', 'var(--light-border)');
+        root.style.setProperty('--card-bg', 'var(--light-bg-secondary)');
+      }
+      
       localStorage.setItem('theme', theme);
     };
 
