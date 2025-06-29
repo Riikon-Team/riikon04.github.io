@@ -38,14 +38,35 @@ function ActivityDisplay({ activity }) {
   
   const getActivityType = (type) => {
     const types = {
-      0: 'Playing',
-      1: 'Streaming',
-      2: 'Listening to',
-      3: 'Watching',
-      4: 'Custom',
-      5: 'Competing in'
+      0: {
+        name: 'Playing',
+        iconClass: 'bi bi-controller',
+      },
+      1: {
+        name: 'Streaming',
+        iconClass: 'bi bi-camera-video'
+      },
+      2: {
+        name: 'Listening',
+        iconClass: 'bi bi-music-note'
+      },
+      3: {
+        name: 'Watching',
+        iconClass: 'bi bi-tv'
+      },
+      4: {
+        name: 'Custom status',
+        iconClass: 'bi bi-question-circle'
+      },
+      5: {
+        name: 'Competitive',
+        iconClass: 'bi bi-trophy'
+      }
     };
-    return types[type] || 'Using';
+    return types[type] || {
+      name: 'Unknown',
+      iconClass: 'bi bi-question-circle'
+    };
   };
   
   return (
@@ -62,7 +83,12 @@ function ActivityDisplay({ activity }) {
         </div>
       )}
       <div className="activity-header">
-        <div className="activity-type">{getActivityType(activity.type)}</div>
+        <div className="activity-type">
+          <i className={getActivityType(activity.type).iconClass}></i>
+          <span className="activity-type-name">
+            {/* {getActivityType(activity.type).name} */}
+          </span>
+        </div>
         <div className="activity-name">{activity.name}</div>
       </div>
       {activity.details && (
@@ -138,7 +164,7 @@ function TeamMembers() {
         
         <div className="member-presence">
           <div className="member-status">
-            <span className={`status-indicator ${member.presence?.status || 'offline'}`}></span>
+            <span className={`status-indicator-2 ${member.presence?.status || 'offline'}`}></span>
             <span className="status-text">
               {member.presence?.status 
                 ? member.presence.status.charAt(0).toUpperCase() + member.presence.status.slice(1) 
