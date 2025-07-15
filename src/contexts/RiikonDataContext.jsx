@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect, useCallback } from 'react';
 
-const API_BASE_URL = 'https://riikon04-web-server.onrender.com/api';
+const API_BASE_URL = 'https://api1.riikonteam.io.vn/api';
 
 const ROLE_ADMIN_ID = '994270954526097448'
 // Create context
